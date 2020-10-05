@@ -69,7 +69,7 @@ const All = (props) => {
       props.navigation.navigate("SingleTodo", {
         updatedTodo: todo,
       });
-    }, 1000);
+    }, 500);
   };
 
   return (

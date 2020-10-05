@@ -2,8 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
-const SingleTodo = (props) => {
-  const { id, status, body } = props.navigation.state.params.updatedTodo;
+const SingleTodo = ({ route, navigation }) => {
+  const { updatedTodo } = route.params;
+  const { id, status, body } = updatedTodo;
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>

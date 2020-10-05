@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   todoInput: {
     width: "95%",
     minHeight: 30,
-    color: "white",
+    color: "black",
     borderWidth: 1,
     marginTop: "20%",
     marginBottom: "5%",
