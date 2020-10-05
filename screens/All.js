@@ -2,40 +2,17 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  FlatList,
-  SafeAreaView,
   TouchableOpacity,
   Alert,
   TextInput,
+  ScrollView,
+  ImageBackground,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import styles from "../styles";
 import TODOS from "../todos";
 import SingleTodo from "./SingleTodo";
 
-// const All = () => {
-//   return (
-//     <View style={styles.allWrapper}>
-//       <SafeAreaView>
-//         <FlatList
-//           data={TODOS}
-//           keyExtractor={(item) => {
-//             item.id;
-//           }}
-//           key={(item) => item.id}
-//           renderItem={({ item }) => (
-//             <Onefeed
-//               index={item.id}
-//               body={item.body}
-//               key={item.id}
-//               //onPress={() => navigation.navigate("Conversation", item)}
-//             />
-//           )}
-//         />
-//       </SafeAreaView>
-//     </View>
-//   );
-// };
 const Stack = createStackNavigator();
 
 const All = (props) => {
@@ -73,39 +50,39 @@ const All = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      {todoList.map((todo, idx) => {
-        return (
-          <TodoItem
-            idx={idx}
-            todo={todo}
-            key={todo.body}
-            onToggleTodo={onToggleTodo}
-            onDeleteTodo={onDeleteTodo}
-          />
-        );
-      })}
-      <View style={styles.inputContainer}>
-        <TextInput
-          value={todoBody}
-          style={styles.todoInput}
-          onChangeText={(text) => setTodoBody(text)}
-        />
-        <TouchableOpacity style={styles.button} onPress={onSubmitTodo}>
-          <Text style={styles.buttonText}>Submit</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
-
-const Onefeed = ({ index, body }) => {
-  return (
-    <View style={styles.allContent}>
-      <Text key={{ index }}>
-        {index}. {body}
-      </Text>
-    </View>
+    <ImageBackground
+      style={styles.container}
+      source={{
+        uri:
+          "https://previews.123rf.com/images/lilu330/lilu3301512/lilu330151200026/49574408-cartoon-winter-landscape-vertical-arctic-background-mobile-phone-screen-size.jpg",
+      }}
+    >
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ marginTop: "20%" }}>
+          {todoList.map((todo, idx) => {
+            return (
+              <TodoItem
+                idx={idx}
+                todo={todo}
+                key={todo.body}
+                onToggleTodo={onToggleTodo}
+                onDeleteTodo={onDeleteTodo}
+              />
+            );
+          })}
+          <View style={styles.inputContainer}>
+            <TextInput
+              value={todoBody}
+              style={styles.todoInput}
+              onChangeText={(text) => setTodoBody(text)}
+            />
+            <TouchableOpacity style={styles.button} onPress={onSubmitTodo}>
+              <Text style={styles.buttonText}>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </ImageBackground>
   );
 };
 

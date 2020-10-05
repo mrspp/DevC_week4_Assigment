@@ -1,8 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 
-const SingleTodo = ({ route, navigation }) => {
+const SingleTodo = ({ route }) => {
   const { updatedTodo } = route.params;
   const { id, status, body } = updatedTodo;
   return (
@@ -32,8 +31,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
+    color: "red",
   },
   bodyText: {
-    fontSize: 50,
+    fontSize: 16,
   },
 });
